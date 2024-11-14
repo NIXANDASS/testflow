@@ -1,37 +1,24 @@
 import React, { useState } from 'react';
-import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from '../config/firebase'; // Ensure this is your Firebase config file
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../'; // Make sure this path points to your Firebase configuration file
 
 function LoginForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const googleProvider = new GoogleAuthProvider();
 
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
   };
 
-  // Email and password login
   const handleLogin = async (e) => {
     e.preventDefault(); // Prevent the form from refreshing the page
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
-      console.log("User logged in with email:", user.email);
+      console.log("User logged in:", user.email);
     } catch (error) {
-      console.error("Error logging in with email:", error.message);
-    }
-  };
-
-  // Google sign-in
-  const handleGoogleSignIn = async () => {
-    try {
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      console.log("User logged in with Google:", user.displayName, user.email);
-    } catch (error) {
-      console.error("Error logging in with Google:", error.message);
+      console.error("Error logging in:", error.message);
     }
   };
 
@@ -62,13 +49,8 @@ function LoginForm() {
         </div>
         <button type="submit" className="btn">Login</button>
       </form>
-      <button onClick={handleGoogleSignIn} className="btn google-btn">
-        Sign in with Google
-      </button>
     </>
   );
 }
-
-
 
 export default LoginForm;
