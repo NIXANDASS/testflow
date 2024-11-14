@@ -1,6 +1,9 @@
-import React, { useState } from 'react';
+import { auth } from '../config/firebase'
+import { useState } from 'react';
 
-function SignUpForm() {
+function LoginForm() {
+
+  const [email, setEmail] = useState("")
   const [passwordVisible, setPasswordVisible] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -9,9 +12,8 @@ function SignUpForm() {
 
   return (
     <>
-      <h2>Sign Up</h2>
+      <h2>Login</h2>
       <form>
-        <input type="text" className="input-field" placeholder="Full Name" required />
         <input type="email" className="input-field" placeholder="Email" required />
         <div style={{ position: 'relative' }}>
           <input
@@ -27,10 +29,10 @@ function SignUpForm() {
             👁️
           </span>
         </div>
-        <button type="submit" className="btn">Sign Up</button>
+        <button type="submit" className="btn">Login</button>
       </form>
     </>
   );
 }
 
-export default SignUpForm;
+export default LoginForm;
