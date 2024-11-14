@@ -1,3 +1,4 @@
+/* Global styles */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -6,11 +7,10 @@ body {
 }
 
 .container {
-  width: 100%;
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 .form-container {
@@ -20,21 +20,27 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
+  margin: 1rem;
+  box-sizing: border-box;
 }
 
+/* Header style */
 h2 {
   text-align: center;
   color: #333;
   margin-bottom: 1rem;
+  font-size: 1.5rem;
 }
 
+/* Form styling */
 .input-field {
   width: 100%;
   padding: 0.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
+  box-sizing: border-box;
 }
 
 .btn {
@@ -52,13 +58,19 @@ h2 {
   background-color: #45a049;
 }
 
+/* Password visibility toggle */
 .toggle-password {
   position: absolute;
-  right: 20px;
-  top: 36px;
+  top: 20px;
+  right: 10px;  /* Reduced the right value for better alignment */
+    /* Vertically center the icon */
+  transform: translateY(-50%);  /* Adjust the position of the icon */
   cursor: pointer;
+  font-size: 1.3rem;  /* Slightly larger icon for better visibility */
 }
 
+
+/* Footer styling (for form switch) */
 .form-footer {
   text-align: center;
   margin-top: 1rem;
@@ -71,4 +83,50 @@ h2 {
 
 .form-footer a:hover {
   text-decoration: underline;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .form-container {
+    padding: 1.5rem;
+  }
+
+  .input-field {
+    font-size: 0.9rem;
+    padding: 0.7rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.7rem;
+  }
+
+  .toggle-password {
+    font-size: 1rem;
+  }
+
+  h2 {
+    font-size: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  h2 {
+    font-size: 1.1rem;
+  }
+
+  .input-field {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
 }
