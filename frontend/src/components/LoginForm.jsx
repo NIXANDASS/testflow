@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
-import { auth } from '../config/firebase'; // Ensure this is your Firebase config file
+import { auth } from '../config/firebase';
 
 function LoginForm() {
   const [email, setEmail] = useState("");
@@ -14,7 +14,7 @@ function LoginForm() {
 
   // Email and password login
   const handleLogin = async (e) => {
-    e.preventDefault(); // Prevent the form from refreshing the page
+    e.preventDefault();
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;

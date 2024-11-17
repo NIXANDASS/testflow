@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword, updateProfile, signOut, signInWithPopup } from "firebase/auth";
-import { auth, googleProvider } from "../config/firebase"; // Ensure this points to your Firebase config file
+import { auth, googleProvider } from "../config/firebase";
 
 function SignUpForm() {
   const [username, setUsername] = useState("");
@@ -13,12 +13,12 @@ function SignUpForm() {
   };
 
   const signIn = async (e) => {
-    e.preventDefault(); // Prevents form from refreshing
+    e.preventDefault();
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
 
-      // Update the profile to include the username
+
       await updateProfile(user, { displayName: username });
       console.log("User signed up with username:", user.displayName);
     } catch (error) {
