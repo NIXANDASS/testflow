@@ -4,6 +4,7 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const { db } = require('./db/db')
 db()
+const firebase=require('firebase')
 
 const app = express();
 const port = process.env.PORT || 5000;
